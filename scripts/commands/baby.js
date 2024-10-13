@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "baby",
+  name: "b",
   version: "0.0.2",
   permission: 0,
   prefix: false,
