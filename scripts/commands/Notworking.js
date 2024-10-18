@@ -1,22 +1,45 @@
 module.exports.config = {
-    name: "auto-reply",
+    name: "auto-reply-bangla",
     version: "1.0.0",
     permission: 0,
     prefix: false,
-    credits: "OMOR ALVI",
-    description: "Auto-reply for all messages",
+    credits: "OMOR-ALVI",
+    description: "বাংলা ভাষায় যেকোনো প্রশ্নের উত্তর দেওয়ার জন্য ChatGPT styled কমান্ড",
     category: "fun",
     usages: "",
     cooldowns: 5,
 };
 
-module.exports.run = async function({ api, event, Users }) {
-    const userMessage = event.body; // Get the user's message
-    const userName = await Users.getNameUser(event.senderID); // Get the user's name
+module.exports.run = async function({ api, event, args, Users }) {
+    const axios = require('axios');
+    const prompt = args.join(" ");
+    const userName = await Users.getNameUser(event.senderID);
 
-    // Create a default reply based on the user message
-    const reply = `ধন্যবাদ ${userName} আপনার মেসেজের জন্য! আপনি বলেছেন: "${userMessage}". আমি এখানে আছি, আরও কিছু জানতে চাইলে বলুন! 😊`;
+    if (!prompt) return api.sendMessage("দয়া করে একটি প্রশ্ন বা ইনপুট প্রদান করুন!", event.threadID, event.messageID);
 
-    // Send the reply back to the user
-    return api.sendMessage(reply, event.threadID, event.messageID);
+    // OpenAI API call
+    const openaiApiKey = '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';
+    const gptResponse = await axios.post(
+        'https://api.openai.com/v1/completions',
+        {
+            model: "text-davinci-003",
+            prompt: prompt,  // User input
+            max_tokens: 100,
+            temperature: 0.7,
+            stop: null,
+            language: "bn"  // বাংলায় উত্তর পাওয়ার জন্য
+        },
+        {
+            headers: {
+                'Authorization': `Bearer ${openaiApiKey}`,
+                'Content-Type': 'application/json'
+            }
+        }
+    );
+
+    // Response from ChatGPT
+    const gptReply = gptResponse.data.choices[0].text.trim();
+
+    // Send the reply with the user's name in Bengali
+    return api.sendMessage(`"${userName}"\n\n${gptReply}`, event.threadID, event.messageID);
 };
