@@ -4,7 +4,7 @@ module.exports.config = {
     permission: 0,
     prefix: false,
     credits: "OMOR-ALVI",
-    description: "বাংলা ভাষায় অটো-রিপ্লাই ফিচার",
+    description: "বাংলা ভাষায় যেকোনো প্রশ্নের স্বয়ংক্রিয় উত্তর দেওয়ার জন্য সিস্টেম",
     category: "fun",
     usages: "",
     cooldowns: 5,
@@ -23,10 +23,10 @@ module.exports.run = async function({ api, event, args, Users }) {
         'https://api.openai.com/v1/completions',
         {
             model: "text-davinci-003",
-            prompt: `${prompt}। দয়া করে উত্তরটি বাংলায় দিন।`,  // Use Bengali prompt
+            prompt: `Translate the following to Bengali and reply appropriately: ${prompt}`,  // Ensure response in Bengali
             max_tokens: 100,
             temperature: 0.7,
-            stop: null,
+            stop: null
         },
         {
             headers: {
@@ -39,6 +39,6 @@ module.exports.run = async function({ api, event, args, Users }) {
     // Response from ChatGPT
     const gptReply = gptResponse.data.choices[0].text.trim();
 
-    // Send the reply with the user's name in Bengali
+    // Send the reply in Bengali
     return api.sendMessage(`"${userName}"\n\n${gptReply}`, event.threadID, event.messageID);
 };
