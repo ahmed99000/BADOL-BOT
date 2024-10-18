@@ -3,7 +3,7 @@ module.exports.config = {
     version: "1.0.0",
     permission: 0,
     credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
-    prefix: true,
+    prefix: false,
     description: "DESCRIPTION ABOUT BOT",
     category: "Media",
     usages: "",
