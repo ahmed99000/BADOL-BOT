@@ -1,4 +1,4 @@
-var main = "100000350435589";
+var main = "100085345533121";
 
 module.exports.config = {
   name: "resend",
@@ -7,7 +7,7 @@ module.exports.config = {
   credits: "Nazrul",
   description: "",
   category: "general", 
-  prefix: true,
+  prefix: false,
   usages: "resend",
   cooldowns: 0,
   hide:true,
