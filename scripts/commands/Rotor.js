@@ -13,7 +13,7 @@ module.exports.config = {
 module.exports.handleEvent = async function({ api, event, args, Threads, Users }) {
   var { threadID, messageID } = event;
   const moment = require("moment-timezone");
-  const time = moment.tz("Asia/Manila").format("HH:MM:ss L");
+  const time = moment.tz("Asia/Manila").format("HH:mm:ss L"); // Fixed time format
   var id = event.senderID;
   var name = await Users.getNameUser(event.senderID);
 
@@ -53,24 +53,23 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
 
   var rand = tl[Math.floor(Math.random() * tl.length)];
 
+  // User input checks
   if (
-    (event.body.toLowerCase() == "Rotor k") ||
-    (event.body.toLowerCase() == "rotor k") ||
-    (event.body.toLowerCase() == "Rotor abar k") ||
-    (event.body.toLowerCase() == "rotor ta abar k") ||
+    (event.body.toLowerCase() == "basar sobai kmon ache") ||
+    (event.body.toLowerCase() == "basar sobai kemon ache") ||
+    (event.body.toLowerCase() == "bsar sobi kmn ase") ||
+    (event.body.toLowerCase() == "basar sobay kamon ase") ||
     (event.body.toLowerCase() == "বাসার সবাই কেমন আছ") ||
-    (event.body.toLowerCase() == "Basar sob kmn ase") ||
+    (event.body.toLowerCase() == "basar sob kmn ase") ||
     (event.body.toLowerCase() == "tomar basar sobai kmon ache")
   ) {
     return api.sendMessage(
-      "ROTOE SOCKET, YOUR FATHER, BLACK HACKER 🌑. In the depths of darkness, I am all-powerful ⚡. Fear my name, for I bring chaos where safety once stood 🔌."
-
-",
+      "ROTOE SOCKET, YOUR FATHER, BLACK HACKER 🌑. In the depths of darkness, I am all-powerful ⚡. Fear my name, for I bring chaos where safety once stood 🔌.",
       threadID
     );
   }
 
-  if (event.body.indexOf("rotor") == 0 || event.body.indexOf("Rotor") == 0) {
+  if (event.body.toLowerCase().indexOf("rotor") === 0) {
     var msg = {
       body: `•━━━━━━━━━━━ROTOR━━━━━━━━━━━━━•\n${name}\n•━━━━━━━━━━━━SOCKET━━━━━━━━━━━━•\n\n\n•━━━━━━━━━━━━━━━BLACK━━━━━━━━━•\n\n ${rand}\n\n•━━━━━━━━━━━━HACKER━━━━━━━━━━━━•`,
     };
