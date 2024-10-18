@@ -23,11 +23,9 @@ module.exports.run = async function({ api, event, args, Users }) {
         'https://api.openai.com/v1/completions',
         {
             model: "text-davinci-003",
-            prompt: prompt,  // User input
+            prompt: `Translate the following to Bengali: ${prompt}`,  // Prompt for Bengali response
             max_tokens: 100,
-            temperature: 0.7,
-            stop: null,
-            language: "bn"  // বাংলায় উত্তর পাওয়ার জন্য
+            temperature: 0.7
         },
         {
             headers: {
