@@ -9,7 +9,7 @@ module.exports.config = {
   credits: "Mohammad Nayan",
   description: "",
   category: "fbcover",
-  prefix: true,
+  prefix: false,
     cooldowns: 2,
 };
 
