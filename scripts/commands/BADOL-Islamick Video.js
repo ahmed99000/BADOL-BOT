@@ -4,7 +4,7 @@ module.exports.config = {
   version: "1.0.0",
   permssion: 0,
   credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
-  prefix:true,
+  prefix:false,
   description: "islamick  VEDIO",
   category: "I C C",
   usages: "islamick vedio",
