@@ -1,10 +1,10 @@
 /** THIS FULL BOT COMMAND FILE AND ALL API CREATE BY BADOL CHAT DONT CHINGE THE MY ANY CODE 🤙🖤📿  **/
 module.exports.config = {
-  name: "stasut",
+  name: "video3",
   version: "1.0.0",
   permssion: 0,
   credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
-  prefix:true,
+  prefix:false,
   description: "islamick stutus  VEDIO",
   category: "I C C",
   usages: "islamick stutus vedio",
