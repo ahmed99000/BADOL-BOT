@@ -1,10 +1,10 @@
 module.exports.config = {
-    name: "auto-reply-bangla",
+    name: "jan",
     version: "1.0.0",
     permission: 0,
     prefix: false,
     credits: "OMOR-ALVI",
-    description: "বাংলা ভাষায় যেকোনো প্রশ্নের স্বয়ংক্রিয় উত্তর দেওয়ার জন্য সিস্টেম",
+    description: "যে কোনো ইনপুট দিলে OpenAI-এর মাধ্যমে বাংলায় স্বয়ংক্রিয় উত্তর দেওয়ার জন্য সিস্টেম",
     category: "fun",
     usages: "",
     cooldowns: 5,
@@ -12,10 +12,10 @@ module.exports.config = {
 
 module.exports.run = async function({ api, event, args, Users }) {
     const axios = require('axios');
-    const prompt = args.join(" ");
+    const prompt = event.body; // পুরো বার্তা ক্যাপচার করার জন্য event.body ব্যবহার করা হয়েছে
     const userName = await Users.getNameUser(event.senderID);
 
-    if (!prompt) return api.sendMessage("দয়া করে একটি প্রশ্ন বা ইনপুট প্রদান করুন!", event.threadID, event.messageID);
+    if (!prompt || prompt.length === 0) return api.sendMessage(" কি জানতে চাও বলো !", event.threadID, event.messageID);
 
     // OpenAI API call
     const openaiApiKey = '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';
@@ -23,10 +23,9 @@ module.exports.run = async function({ api, event, args, Users }) {
         'https://api.openai.com/v1/completions',
         {
             model: "text-davinci-003",
-            prompt: `Translate the following to Bengali and reply appropriately: ${prompt}`,  // Ensure response in Bengali
+            prompt: `Please reply in Bengali to the following: ${prompt}`,  // বাংলা ভাষায় সঠিক উত্তর পেতে প্রম্পট
             max_tokens: 100,
-            temperature: 0.7,
-            stop: null
+            temperature: 0.7
         },
         {
             headers: {
@@ -36,9 +35,9 @@ module.exports.run = async function({ api, event, args, Users }) {
         }
     );
 
-    // Response from ChatGPT
+    // ChatGPT থেকে প্রাপ্ত উত্তর
     const gptReply = gptResponse.data.choices[0].text.trim();
 
-    // Send the reply in Bengali
+    // ব্যবহারকারীর নামসহ উত্তর পাঠানো হবে
     return api.sendMessage(`"${userName}"\n\n${gptReply}`, event.threadID, event.messageID);
 };
