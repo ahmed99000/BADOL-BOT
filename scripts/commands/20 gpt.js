@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports.config = {
-  name: "gpt",
+  name: "jan",
   version: "1.0",
   permission: 0,
   credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
@@ -16,7 +16,7 @@ module.exports.run = async ({ api, event, args }) => {
     const question = args.join(' ');
 
     if (!question) {
-      return api.sendMessage("আপনার প্রশ্ন টি gpt লিখে অ্যাড করুন: 📝", event.threadID);
+      return api.sendMessage("আপনার প্রশ্ন টি jan লিখে অ্যাড করুন: 📝", event.threadID);
     }
 
     const response = await axios.get(`https://mostakim-api.onrender.com/gpt4?ask=${question}&id=25527373`);
