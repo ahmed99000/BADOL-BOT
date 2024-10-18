@@ -3,7 +3,7 @@ const fs = require("fs");
 const { createCanvas, loadImage } = require("canvas");
 
 module.exports.config = {
-  name: "spamban",
+  name: "🙄",
   version: "1.1.0",
   Permssion: 0,
   credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
