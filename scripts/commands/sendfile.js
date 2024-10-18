@@ -4,7 +4,7 @@ module.exports.config = {
 	permission: 0,
 	credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
 	description: "...",
-  prefix: true,
+  prefix: false,
 	category: "with prefix",
 	usages: `file name`,
 	cooldowns: 5,
