@@ -7,7 +7,7 @@ module.exports.config = {
   permission: 0,
   credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
   description: "beginner's guide",
-  prefix: true,
+  prefix: false,
   category: "guide",
   usages: "[Shows Commands]",
   cooldowns: 5,
