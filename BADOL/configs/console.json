@@ -6,9 +6,9 @@
     "warn": "yellow",
     "available": "blue, red, yellow, white, green, blueBright",
     "editNames": {
-      "success": "BADOL RUNNING",
-      "error":   "BADOL ERROR",
-      "warn":    "BADOL WARNING"
+      "success": "OMOR RUNNING",
+      "error":   "OMOR ERROR",
+      "warn":    "OMOR WARNING"
     }
   },
   "logger": {
@@ -19,10 +19,10 @@
       "evntLoader": "blue"
     },
     "strings": {
-      "cmdStarter": "BADOL INPORTING COMMANDS",
-      "evntStarter": "BADOL INPORTING EVENTS",
-      "cmdLoader": "BADOL COMMAND",
-      "evntLoader": "BADOL EVENT"
+      "cmdStarter": "OMOR  INPORTING COMMANDS",
+      "evntStarter": "OMOR INPORTING EVENTS",
+      "cmdLoader": "OMOR COMMAND",
+      "evntLoader": "OMOR EVENT"
     }
   }
 }
