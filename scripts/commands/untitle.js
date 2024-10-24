@@ -1,8 +1,8 @@
 module.exports.config = {
-  name: "Alvi",
+  name: "omordiya",
 	version: "1.0.0",
 	permission: 0,
-  prefix: false,
+  prefix: true,
 	credits: "Nayan",
 	description: "I am nayan better than ChatGPT and Bard",
 	category: "user",
