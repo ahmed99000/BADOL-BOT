@@ -1,17 +1,15 @@
 module.exports.config = {
   name: "cud",
-  version: "1.0.1", 
-  permssion: 2,
-  credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
-  prefix:false,
-  description: "Admin and Bot info.",
-  category: "...",
-  cooldowns: 1,
-  dependencies: 
-  {
-    "request":"",
-    "fs-extra":"",
-    "axios":""
+  version: "1.0.1",
+  permission: 2,
+  credits: "ryuko",
+  prefix: false,
+  description: "restart bot system",
+  category: "admin",
+  usages: "restart",
+  cooldowns: 5,
+  dependencies: {
+    "process": ""
   }
 };
 
