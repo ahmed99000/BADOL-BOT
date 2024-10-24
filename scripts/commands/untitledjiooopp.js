@@ -4,7 +4,7 @@ module.exports.config = {
   permission: 0,
   credits: "ryuko",
   description: "control operator lists",
-  prefix: false,
+  prefix: true,
   category: "operator",
   usages: "operator [add/remove] [uid]",
   cooldowns: 5,
