@@ -4,7 +4,7 @@ module.exports.config = {
   name: "jan",
   version: "1.0",
   permission: 0,
-  credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
+  credits: "★OMOR ALVI★",
   prefix: true,
   description: "Cyber Gpt",
   category: "General",
