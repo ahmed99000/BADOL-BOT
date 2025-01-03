@@ -2,7 +2,7 @@ module.exports.config = {
   name: "/",
   version: "1.0.1",
   permission: 0,
-  credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
+  credits: "★OMOR ALVI★",
   prefix: false,
   description: "goibot",
   category: "Noprefix",
