@@ -1,4 +1,4 @@
-name: X10-BOTPACK
+name: BADOL-BOT
 
 on:
   push:
@@ -9,30 +9,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
+      # ১. কোড চেকআউট করুন
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Setup Node.js 18.x
+      # ২. Node.js 18.x সেটআপ করুন
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: 'npm'  # অটো npm ক্যাশে
+          cache: 'npm'  # অটো ক্যাশে
 
-      # Step 3: Cache Dependencies
+      # ৩. ক্যাশে ডিপেন্ডেন্সি (যদি প্রয়োজন হয়)
       - name: Cache Dependencies
         uses: actions/cache@v4
         with:
-          path: |
-            node_modules
-            **/build
+          path: node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
-      # Step 4: Install Dependencies
-      - name: Install Dependencies
-        run: npm ci  # Clean install (package-lock.json ব্যবহার করে)
+      # ৪. ক্লিন ইন্সটল (নিশ্চিত করুন)
+      - name: Clean Install
+        run: rm -rf node_modules && npm ci
 
-      # Step 5: Start Application (যদি প্রয়োজন হয়)
-      - name: Start Application
+      # ৫. বট চালু করুন
+      - name: Start Bot
         run: npm start
