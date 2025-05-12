@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "santo",
+  name: "omor",
   version: "1.0.1",
   permission: 0,
   credits: "★𝐌𝟗𝐇𝟒𝐌𝐌𝟒𝐃-𝐁𝟒𝐃𝟗𝐋★",
@@ -30,7 +30,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
      return api.sendMessage("-আলহামদুলিল্লাহ-🌺-অনেক অনেক ভালো আছে তোমার বাসার সবাই কেমন আছে-💝🌻", threadID);
    };
 
-  if (event.body.indexOf("Santo") == 0 || (event.body.indexOf("santo") == 0)) {
+  if (event.body.indexOf("Omor") == 0 || (event.body.indexOf("omor") == 0)) {
     var msg = {
       body: `•━━━━━━━━━━━━━━━━━━━━━━━━━━━━━•\n${name}\n•━━━━━━━━━━━━━━━━━━━━━━━━━━━━━•\n\n\n•━━━━━━━━━━━━━━━━━━━━━━━━━━━━━•\n\n ${rand}\n\n•━━━━━━━━━━━━━━━━━━━━━━━━━━━━━•` 
     }
