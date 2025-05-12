@@ -12,17 +12,32 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x] # Updated to match required version of some packages
+        node-version: [18.x]  # Node.js 18.x সাপোর্টেড ভার্সন
 
     steps:
-    - uses: actions/checkout@v2
+      # স্টেপ ১: রিপোজিটরি কোড চেকআউট করুন (Latest ভার্সন)
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+      # স্টেপ ২: Node.js সেটআপ করুন + অটো npm ক্যাশে
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'  # npm ক্যাশে অটো-রিস্টোর
 
-    - run: npm install
+      # স্টেপ ৩: ম্যানুয়াল ক্যাশে (যদি জরুরি হয়)
+      - name: Cache Dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            **/build
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
-    - run: npm start
+      # স্টেপ ৪: ডিপেন্ডেন্সি ইন্সটল ও বিল্ড
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Start Application
+        run: npm start
