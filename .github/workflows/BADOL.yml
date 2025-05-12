@@ -3,30 +3,24 @@ name: X10-BOTPACK
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]  # Node.js 18.x সাপোর্টেড ভার্সন
-
     steps:
-      # স্টেপ ১: রিপোজিটরি কোড চেকআউট করুন (Latest ভার্সন)
+      # Step 1: Checkout code
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # স্টেপ ২: Node.js সেটআপ করুন + অটো npm ক্যাশে
-      - name: Setup Node.js ${{ matrix.node-version }}
+      # Step 2: Setup Node.js 18.x
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'  # npm ক্যাশে অটো-রিস্টোর
+          node-version: 18.x
+          cache: 'npm'  # অটো npm ক্যাশে
 
-      # স্টেপ ৩: ম্যানুয়াল ক্যাশে (যদি জরুরি হয়)
+      # Step 3: Cache Dependencies
       - name: Cache Dependencies
         uses: actions/cache@v4
         with:
@@ -35,9 +29,10 @@ jobs:
             **/build
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
-      # স্টেপ ৪: ডিপেন্ডেন্সি ইন্সটল ও বিল্ড
+      # Step 4: Install Dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm ci  # Clean install (package-lock.json ব্যবহার করে)
 
+      # Step 5: Start Application (যদি প্রয়োজন হয়)
       - name: Start Application
         run: npm start
