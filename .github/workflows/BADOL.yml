@@ -1,36 +1,83 @@
-name: BADOL-BOT
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      # ১. কোড চেকআউট করুন
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      # ২. Node.js 18.x সেটআপ করুন
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache: 'npm'  # অটো ক্যাশে
-
-      # ৩. ক্যাশে ডিপেন্ডেন্সি (যদি প্রয়োজন হয়)
-      - name: Cache Dependencies
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-
-      # ৪. ক্লিন ইন্সটল (নিশ্চিত করুন)
-      - name: Clean Install
-        run: rm -rf node_modules && npm ci
-
-      # ৫. বট চালু করুন
-      - name: Start Bot
-        run: npm start
+[
+    {
+        "key": "datr",
+        "value": "NTc6aDnWjjclgAIuGaYgNONM",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.594Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    },
+    {
+        "key": "sb",
+        "value": "fTc6aBV2qHXSfLYkDfNuMRXf",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.595Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    },
+    {
+        "key": "locale",
+        "value": "en_US",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.595Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    },
+    {
+        "key": "vpd",
+        "value": "v1%3B664x360x2",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.595Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    },
+    {
+        "key": "c_user",
+        "value": "100078299405598",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.595Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    },
+    {
+        "key": "xs",
+        "value": "21%3AxX2YaKXACN_3Qw%3A2%3A1748687868%3A-1%3A-1",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.595Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    },
+    {
+        "key": "fr",
+        "value": "0St87WtGrWafVPOuU.AWdwpQVWjeXys7sii1HgfR1Zxyk6ojbhsgjQOLfSt9jIAp8u6b0.BoOjeE..AAA.0.0.BoOxXb.AWcVVuKP5dhfdaHuWmyyDhlzISE",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.595Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    },
+    {
+        "key": "fbl_st",
+        "value": "101621741%3BT%3A29145044",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.595Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    },
+    {
+        "key": "wl_cbv",
+        "value": "v2%3Bclient_version%3A2834%3Btimestamp%3A1748702683%3BCRCM%3A-686426698",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2025-05-31T16:07:29.595Z",
+        "lastAccessed": "2025-05-31T16:07:29.595Z"
+    }
+]
