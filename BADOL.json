@@ -7,16 +7,16 @@
   "notification": false,
   "approval": false,
   "saveState": false,
-  "BOTNAME": "•༺𝐎𝐌𝐎ཞ༻•__//𝟗𝟎",
+  "BOTNAME": "•༺SANTOཞ༻•__//𝟗𝟎",
   "PREFIX": "/",
   "OPERATOR": [
-    "61567872445449"
+    "/100078299405598"
   ],
   "ADMINBOT": [
-    "61567872445449",
-    "61567872445449"
+    "/100078299405598",
+    "/100078299405598"
   ],
-  "OWNER": ["100001381266797"], 
+  "OWNER": ["/100078299405598"], 
   "APPROVED": [],
   "disabledcmds": [],
   "disabledevents": [],
